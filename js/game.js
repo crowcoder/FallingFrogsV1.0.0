@@ -77,7 +77,7 @@ var waititsfun = (function () {
 
             if (frogs.length < 3) { this.frogFactory(); }
 
-            for (var i = 0; i < frogs.length; i++) {
+            for (var i = 0; i < frogs.length - 1; i++) {
 
                 var thefrog = frogs[i].thefrog;
                 var thefish = frogs[i].thefish;
