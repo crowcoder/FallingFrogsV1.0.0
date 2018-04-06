@@ -38,7 +38,8 @@ var waititsfun = (function () {
             game.physics.arcade.enable(froggy);
             froggy.body.collideWorldBounds = true;
             froggy.body.gravity.y = froggravity;
-            froggy.body.bounce.setTo(1, 1);
+            // froggy.body.bounce.setTo(1, 1);
+            froggy.body.bounce.setTo(.5, .5);
             froggy.body.velocity.x = frogXvelocity;
             var fish = game.add.sprite(0, 500, 'fish');
             game.physics.arcade.enable(fish);
@@ -92,7 +93,7 @@ var waititsfun = (function () {
                     game.physics.arcade.collide(water, thefrog, function () {
                         thefrog.body.velocity.y = 0;
                         thefrog.body.velocity.x = 0;
-                        thefrog.body.y = thefrog.body.y + 20;
+                        thefrog.body.y = thefrog.body.y + 2;
                         thefrog.body.allowGravity = false;
                         thefish.body.x = thefrog.body.x - 29;
                         //properties, duration, ease, autoStart, delay, repeat, yoyo
@@ -106,7 +107,8 @@ var waititsfun = (function () {
                 }
             }
 
-            game.physics.arcade.collide(allfrogs);
+            // uncomment for frog collisions
+            //game.physics.arcade.collide(allfrogs);
 
             lilly.body.velocity.x = 0;
 
@@ -119,10 +121,23 @@ var waititsfun = (function () {
                 }
             }else{
             if (cursors.left.isDown) {
-                lilly.body.velocity.x = -450;
+                // lilly.body.velocity.x = -450;
+                lilly.body.velocity.x = 1000;
             }
             else if (cursors.right.isDown) {
-                lilly.body.velocity.x = 450;
+                // lilly.body.velocity.x = 450;
+                lilly.body.velocity.x = -1000;
+            }else if (Phaser.Device.touch) {
+                if (game.input.pointer1.isDown) {
+                    lilly.body.x = game.input.pointer1.x;
+                } else {
+                    if (cursors.left.isDown) {
+                        lilly.body.velocity.x = -450;
+                    }
+                    else if (cursors.right.isDown) {
+                        lilly.body.velocity.x = 450;
+                    }
+                }
             }
         }
 
