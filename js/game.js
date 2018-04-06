@@ -122,7 +122,7 @@ var waititsfun = (function () {
             }else{
             if (cursors.left.isDown) {
                 // lilly.body.velocity.x = -450;
-                lilly.body.velocity.x = 1001;
+                lilly.body.velocity.x = 501;
             }
             else if (cursors.right.isDown) {
                 // lilly.body.velocity.x = 450;
