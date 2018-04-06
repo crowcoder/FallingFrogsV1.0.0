@@ -111,13 +111,21 @@ var waititsfun = (function () {
             lilly.body.velocity.x = 0;
 
             var gpad = gamepad.GetRightStick();
-
+            if(gpad && gpad.direction !== 0){
+                if(gpad.direction === 8){
+                    lilly.body.velocity.x = 450;
+                }else if(gpad.direction === 16){
+                    lilly.body.velocity.x = -450;
+                }
+            }else{
             if (cursors.left.isDown) {
                 lilly.body.velocity.x = -450;
             }
             else if (cursors.right.isDown) {
                 lilly.body.velocity.x = 450;
             }
+        }
+
         }
     };
 
