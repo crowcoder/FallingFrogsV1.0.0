@@ -121,6 +121,17 @@ var waititsfun = (function () {
             else if (cursors.right.isDown) {
                 // lilly.body.velocity.x = 450;
                 lilly.body.velocity.x = -1000;
+            }else if (Phaser.Device.touch) {
+                if (game.input.pointer1.isDown) {
+                    lilly.body.x = game.input.pointer1.x;
+                } else {
+                    if (cursors.left.isDown) {
+                        lilly.body.velocity.x = -450;
+                    }
+                    else if (cursors.right.isDown) {
+                        lilly.body.velocity.x = 450;
+                    }
+                }
             }
         }
     };
