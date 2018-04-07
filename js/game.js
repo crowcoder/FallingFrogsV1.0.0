@@ -115,12 +115,12 @@ var waititsfun = (function () {
 
 
                     if (cursors.left.isDown) {
-                        //lilly.body.velocity.x = -450;
-                        lilly.body.velocity.x = 25;
+                        lilly.body.velocity.x = -450;
+                        //lilly.body.velocity.x = 25;
                     }
                     else if (cursors.right.isDown) {
-                        //lilly.body.velocity.x = 450;
-                        lilly.body.velocity.x = -25;
+                        lilly.body.velocity.x = 450;
+                        //lilly.body.velocity.x = -25;
                     }
                 
             
