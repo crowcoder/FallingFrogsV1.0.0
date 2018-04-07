@@ -114,30 +114,35 @@ var waititsfun = (function () {
             lilly.body.velocity.x = 0;
 
 
-            if (cursors.left.isDown) {
-                lilly.body.velocity.x = -450;
-                //lilly.body.velocity.x = 25;
-            }
-            else if (cursors.right.isDown) {
-                lilly.body.velocity.x = 450;
-                //lilly.body.velocity.x = -25;
-            } else if (Phaser.Device.touch) {
-                if (game.input.pointer1.isDown) {
-                    lilly.body.x = game.input.pointer1.x;
-                } else {
-                    if (cursors.left.isDown) {
             if(gpad && gpad.direction !== 0){
                 if(gpad.direction === 8){
                     lilly.body.velocity.x = 450;
                 }else if(gpad.direction === 16){
                     lilly.body.velocity.x = -450;
                 }
-            }else if(cursors.left.isDown) {
+            }else if (Phaser.Device.touch) {
+                if (game.input.pointer1.isDown) {
+                    lilly.body.x = game.input.pointer1.x;
+                } else {
+                    if (cursors.left.isDown) {
                         lilly.body.velocity.x = -450;
+                        // lilly.body.velocity.x = 25
                     }
                     else if (cursors.right.isDown) {
                         lilly.body.velocity.x = 450;
+                        // lilly.body.velocity.x = -25
                     }
+                }
+            } else {
+                if (cursors.left.isDown) {
+                    lilly.body.velocity.x = -450;
+                    // lilly.body.velocity.x = 25
+                }
+                else if (cursors.right.isDown) {
+                    lilly.body.velocity.x = 450;
+                    // lilly.body.velocity.x = -25
+                }
+            }
                 
             
         
