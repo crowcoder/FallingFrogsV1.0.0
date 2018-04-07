@@ -38,8 +38,8 @@ var waititsfun = (function () {
             game.physics.arcade.enable(froggy);
             froggy.body.collideWorldBounds = true;
             froggy.body.gravity.y = froggravity;
-            //froggy.body.bounce.setTo(1, 1);
-            froggy.body.bounce.setTo(.5, .5);
+            froggy.body.bounce.setTo(1, 1);
+            //froggy.body.bounce.setTo(.5, .5);
             froggy.body.velocity.x = frogXvelocity;
             var fish = game.add.sprite(0, 500, 'fish');
             game.physics.arcade.enable(fish);
