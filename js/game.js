@@ -93,6 +93,7 @@ var waititsfun = (function () {
                     game.physics.arcade.collide(water, thefrog, function () {
                         thefrog.body.velocity.y = 0;
                         thefrog.body.velocity.x = 0;
+                        // thefrog.body.rotation = 20; //-20;
                         thefrog.body.y = thefrog.body.y + 2;
                         thefrog.body.allowGravity = false;
                         thefish.body.x = thefrog.body.x - 29;
@@ -114,10 +115,12 @@ var waititsfun = (function () {
 
 
                     if (cursors.left.isDown) {
-                        lilly.body.velocity.x = -450;
+                        //lilly.body.velocity.x = -450;
+                        lilly.body.velocity.x = 25;
                     }
                     else if (cursors.right.isDown) {
-                        lilly.body.velocity.x = 450;
+                        //lilly.body.velocity.x = 450;
+                        lilly.body.velocity.x = -25;
                     }
                 
             
