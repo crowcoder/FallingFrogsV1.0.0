@@ -93,6 +93,7 @@ var waititsfun = (function () {
                     game.physics.arcade.collide(water, thefrog, function () {
                         thefrog.body.velocity.y = 0;
                         thefrog.body.velocity.x = 0;
+
                         thefrog.body.rotation = -20;
                         thefrog.body.y = thefrog.body.y + 2;
                         thefrog.body.allowGravity = false;
@@ -109,19 +110,40 @@ var waititsfun = (function () {
             }
 
             // uncomment for frog collisions
-            //game.physics.arcade.collide(allfrogs);
+            game.physics.arcade.collide(allfrogs);
 
             lilly.body.velocity.x = 0;
+            var gpad = gamepad.GetRightStick(); 
 
-
+            if(gpad && gpad.direction !== 0){
+                if(gpad.direction === 8){
+                    lilly.body.velocity.x = 450;
+                }else if(gpad.direction === 16){
+                    lilly.body.velocity.x = -450;
+                }
+            }else if (Phaser.Device.touch) {
+                if (game.input.pointer1.isDown) {
+                    lilly.body.x = game.input.pointer1.x;
+                } else {
                     if (cursors.left.isDown) {
                         lilly.body.velocity.x = -450;
-                        //lilly.body.velocity.x = 25;
+                        // lilly.body.velocity.x = 25
                     }
                     else if (cursors.right.isDown) {
                         lilly.body.velocity.x = 450;
-                        //lilly.body.velocity.x = -25;
+                        // lilly.body.velocity.x = -25
                     }
+                }
+            } else {
+                if (cursors.left.isDown) {
+                    lilly.body.velocity.x = -450;
+                    // lilly.body.velocity.x = 25
+                }
+                else if (cursors.right.isDown) {
+                    lilly.body.velocity.x = 450;
+                    // lilly.body.velocity.x = -25
+                }
+            }
                 
             
         
