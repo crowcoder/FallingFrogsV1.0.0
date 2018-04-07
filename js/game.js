@@ -112,7 +112,7 @@ var waititsfun = (function () {
             game.physics.arcade.collide(allfrogs);
 
             lilly.body.velocity.x = 0;
-
+            var gpad = gamepad.GetRightStick(); 
 
             if(gpad && gpad.direction !== 0){
                 if(gpad.direction === 8){
